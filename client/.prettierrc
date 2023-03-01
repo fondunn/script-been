@@ -1,0 +1,27 @@
+{
+  "printWidth": 80,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "arrowParens": "avoid",
+  "scss.lint.unknownAtRules": "ignore",
+
+  "importOrder": [
+    "react",
+    "@/components/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@core/(.*)$",
+    "@/ui/(.*)$",
+    "@/providers/(.*)$",
+    "@/hooks/(.*)$",
+    "@/utils/(.*)$",
+    "@/api/(.*)$",
+    "@/types/(.*)$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "formatOnSave": true
+}

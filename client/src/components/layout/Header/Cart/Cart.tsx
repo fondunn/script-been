@@ -13,11 +13,9 @@ import { FC, useRef, useState } from 'react'
 import styles from './Cart.module.scss'
 import { CartItem } from './CartItem/CartItem'
 
-import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { useCart } from '@/hooks/useCart'
 
 import { formatToCurrency } from '@/utils/formatToCurrency'
-
-// TODO: add redux
 
 const Cart: FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,11 +23,8 @@ const Cart: FC = () => {
   const closeHandler = () => {
     setIsOpen(false)
   }
-  const cart = useTypedSelector(state => state.cart.items)
-  const total = cart.reduce(
-    (acc, item) => acc + item.product.price * item.quantity,
-    0
-  )
+
+  const { cart, total } = useCart()
 
   return (
     <div className={styles['wrapper-cart']}>
@@ -55,9 +50,11 @@ const Cart: FC = () => {
 
           <DrawerBody>
             <div className={styles.cart}>
-              {cart.map(el => (
-                <CartItem key={el.product.id} item={el} />
-              ))}
+              {cart.length ? (
+                cart.map(el => <CartItem key={el.product.id} item={el} />)
+              ) : (
+                <div>Basket is empty</div>
+              )}
             </div>
           </DrawerBody>
           <DrawerFooter

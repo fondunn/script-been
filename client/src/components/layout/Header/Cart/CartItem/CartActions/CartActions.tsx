@@ -4,10 +4,12 @@ import { FC } from 'react'
 import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 
 import { useActions } from '@/hooks/useActions'
+import { useCart } from '@/hooks/useCart'
 
 import { ICartItem } from '@/types/cart-item.interface'
 
 const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
+  const { cart } = useCart()
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
       step: 1,
@@ -33,6 +35,7 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
           focusBorderColor='green.400'
           readOnly
           _hover={{ cursor: 'default' }}
+          value={cart.find(i => i.id === item.id)?.quantity}
         />
         <Button
           {...inc}

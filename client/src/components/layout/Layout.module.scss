@@ -2,8 +2,7 @@
   > main {
     @apply bg-white px-10 py-8;
     > .content {
-
+      @apply relative mx-auto max-w-7xl;
     }
   }
-
 }

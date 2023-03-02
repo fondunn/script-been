@@ -2,10 +2,12 @@ import { FC } from 'react'
 
 import Carousel from '@/components/ui/Catalog/Carousel/Carousel'
 
-const Catalog: FC = () => {
+import { IProduct } from '@/types/Product'
+
+const Catalog: FC<{ products: IProduct[] }> = ({ products }) => {
   return (
     <div>
-      <Carousel />
+      <Carousel products={products} />
     </div>
   )
 }

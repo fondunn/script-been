@@ -19,6 +19,12 @@
     .price {
       @apply mt-1 text-sm text-beige;
     }
+    .variation {
+      @apply mt-1 flex text-xs lowercase text-beige;
+      .variant {
+        @apply my-1 mr-1 flex rounded-md border border-dark-green px-1 text-dark-green;
+      }
+    }
   }
 }
 

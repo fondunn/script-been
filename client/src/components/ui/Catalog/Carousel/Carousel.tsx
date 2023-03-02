@@ -1,15 +1,17 @@
 import { FC } from 'react'
 
 import styles from './Carousel.module.scss'
-import CarouselItem from './CarouselItem/CarouselItem'
+import CarouselItem, { TypeNavigation } from './CarouselItem/CarouselItem'
 
-import { IProduct } from '@/types/Product'
+import { useProducts } from '@/hooks/useProducts'
 
-const Carousel: FC<{ products: IProduct[] }> = ({ products }) => {
+const Carousel: FC = () => {
+  const { products } = useProducts()
+
   return (
     <section className={styles.carousel}>
-      {products.map(product => (
-        <CarouselItem key={product.name} product={product} />
+      {products.map((product, index) => (
+        <CarouselItem key={product.name} product={product} index={index} />
       ))}
     </section>
   )

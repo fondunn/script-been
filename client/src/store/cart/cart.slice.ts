@@ -1,12 +1,12 @@
 import {
   IAddToCartPayload,
-  IChangeQuantityPayload,
-  IInitialState
-} from './types'
+  ICartInitialState,
+  IChangeQuantityPayload
+} from './cart.types'
 import { cart } from '@/data/cart.data'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-const initialState: IInitialState = {
+const initialState: ICartInitialState = {
   items: cart
 }
 
@@ -15,13 +15,15 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<IAddToCartPayload>) => {
-      const id = state.items.length
-      state.items.push({ ...action.payload, id })
+      const existSize = state.items.some(
+        item => item.size === action.payload.size
+      )
+      if (!existSize) {
+        state.items.push({ ...action.payload, id: state.items.length })
+      }
     },
     removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
-      state.items = state.items.filter(
-        item => item.product.id !== action.payload.id
-      )
+      state.items = state.items.filter(item => item.id !== action.payload.id)
     },
     changeQuantity: (state, action: PayloadAction<IChangeQuantityPayload>) => {
       const { id, type } = action.payload

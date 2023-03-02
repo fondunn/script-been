@@ -1,4 +1,6 @@
-import { cartSlice } from './slice'
+import { carouselSlice } from './carousel/carousel.slice'
+import { cartSlice } from './cart/cart.slice'
+import { productsSlice } from './products/products.slice'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import {
   FLUSH,
@@ -19,7 +21,9 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-  cart: cartSlice.reducer
+  cart: cartSlice.reducer,
+  carousel: carouselSlice.reducer,
+  products: productsSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

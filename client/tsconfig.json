@@ -22,9 +22,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/layout/*": ["components/layout/*"],
-      "@/ui/*": ["components/ui/*"],
-      "@/screens/*": ["components/screens/*"],
+      "@/layout/*": ["./src/components/layout/*"],
+      "@/ui/*": ["./src/components/ui/*"],
+      "@/screens/*": ["./src/components/screens/*"],
       "@/*": ["./src/*"]
     }
   },

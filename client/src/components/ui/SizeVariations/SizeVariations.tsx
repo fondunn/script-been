@@ -1,17 +1,18 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
-import styles from '../Carousel.module.scss'
 import { TypeCupSizes } from '@/store/cart/cart.types'
 import cn from 'clsx'
 
+import styles from '@/ui/Catalog/Carousel/Carousel.module.scss'
+
 const SIZES: TypeCupSizes[] = ['small', 'medium', 'big', 'large']
 
-interface ICarouselVariationsProps {
+interface ISizeVariationsProps {
   selectedSize: TypeCupSizes
   setSelectedSize: Dispatch<SetStateAction<TypeCupSizes>>
 }
 
-const CarouselVariations: FC<ICarouselVariationsProps> = ({
+const SizeVariations: FC<ISizeVariationsProps> = ({
   selectedSize,
   setSelectedSize
 }) => {
@@ -32,4 +33,4 @@ const CarouselVariations: FC<ICarouselVariationsProps> = ({
   )
 }
 
-export default CarouselVariations
+export default SizeVariations

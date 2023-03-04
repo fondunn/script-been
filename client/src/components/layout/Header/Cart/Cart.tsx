@@ -51,7 +51,12 @@ const Cart: FC = () => {
           <DrawerBody>
             <div className={styles.cart}>
               {cart.length ? (
-                cart.map(el => <CartItem key={el.product.id} item={el} />)
+                cart.map(el => (
+                  <CartItem
+                    key={`${el.product.id}-${Math.random()}`}
+                    item={el}
+                  />
+                ))
               ) : (
                 <div>Basket is empty</div>
               )}

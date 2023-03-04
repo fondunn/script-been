@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import styles from './Carousel.module.scss'
-import CarouselItem, { TypeNavigation } from './CarouselItem/CarouselItem'
+import CarouselItem from './CarouselItem/CarouselItem'
 
 import { useProducts } from '@/hooks/useProducts'
 

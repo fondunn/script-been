@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react'
+import { Button, useToast } from '@chakra-ui/react'
 import { FC } from 'react'
 
 import { colorPalette } from '@/config/colorPalette'
@@ -10,21 +10,33 @@ import { useProducts } from '@/hooks/useProducts'
 
 import { IProduct } from '@/types/Product'
 
-interface ICarouselButtonProps {
+interface IAddToCartButtonProps {
   product: IProduct
   selectedSize: TypeCupSizes
 }
 
-const CarouselButton: FC<ICarouselButtonProps> = ({
+const AddToCartButton: FC<IAddToCartButtonProps> = ({
   product,
   selectedSize
 }) => {
   const { addToCart } = useActions()
+  const toast = useToast()
+  const onAddToCart = () => {
+    addToCart({ product, quantity: 1, size: selectedSize })
+    toast({
+      title: 'Success.',
+      description: 'Product was added to cart',
+      status: 'success',
+      duration: 3000,
+      isClosable: true
+    })
+  }
+
   return (
     <div className='text-center'>
       <Button
         color={colorPalette.green}
-        onClick={() => addToCart({ product, quantity: 1, size: selectedSize })}
+        onClick={() => onAddToCart()}
         className='tracking-widest'
         marginTop={10}
         borderRadius={20}
@@ -38,11 +50,11 @@ const CarouselButton: FC<ICarouselButtonProps> = ({
   )
 }
 type TypeDirection = 'left' | 'right'
-interface ICarouselNavigationButtonProps {
+interface ICustomNavigationButtonProps {
   direction: TypeDirection
 }
 
-const CarouselNavigationButton: FC<ICarouselNavigationButtonProps> = ({
+const CustomNavigationButton: FC<ICustomNavigationButtonProps> = ({
   direction
 }) => {
   const { products } = useProducts()
@@ -94,4 +106,4 @@ const CarouselNavigationButton: FC<ICarouselNavigationButtonProps> = ({
   )
 }
 
-export { CarouselButton, CarouselNavigationButton }
+export { AddToCartButton, CustomNavigationButton }

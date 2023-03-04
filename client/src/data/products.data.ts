@@ -6,6 +6,7 @@ export const products: IProduct[] = [
     description:
       'This blend of sweetened premium matcha green tea, milk and ice—topped',
     name: 'Matcha Crème Frappuccino',
+    slug: 'matcha-creme-frappuccino',
     price: 9,
     images: [
       '/products/co-1-t.webp',
@@ -19,6 +20,7 @@ export const products: IProduct[] = [
     description:
       'Hot chocolate of caramelized white chocolate combined with steamed milk and whipped cream',
     name: 'Toasted White Hot Chocolate',
+    slug: 'toasted-white-hot-chocolate',
     price: 5,
     images: ['/products/co-2-t.webp'],
     reviews: []
@@ -27,6 +29,7 @@ export const products: IProduct[] = [
     id: 3,
     description: `Summer's favorite berry is the star of this delicious Frappuccino®`,
     name: 'Strawberry Crème Frappuccino',
+    slug: 'strawberry-creme-frappuccino',
     price: 6.95,
     images: ['/products/co-3-t.webp'],
     reviews: []
@@ -35,6 +38,7 @@ export const products: IProduct[] = [
     id: 4,
     description: `Caramel syrup meets coffee, milk and ice for a rendezvous in the blender.`,
     name: 'Caramel Frappuccino',
+    slug: 'caramel-frappuccino',
     price: 5.95,
     images: ['/products/co-4-t.webp'],
     reviews: []

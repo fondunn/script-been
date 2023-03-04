@@ -45,7 +45,7 @@
   }
 
   &.active {
-    @apply z-10 bg-green bg-contain bg-no-repeat p-6 pt-0;
+    @apply cursor-default bg-green bg-contain bg-no-repeat p-6 pt-0;
     background-image: url('/images/pattern.webp');
     background-position: center -60px;
     box-shadow: 0px 12px 22px rgba(17, 17, 17, 0.4);
@@ -62,6 +62,9 @@
     }
     .heading {
       @apply text-white transition-all duration-700;
+    }
+    .link {
+      @apply mt-5 block text-center text-xs text-white;
     }
   }
 }
